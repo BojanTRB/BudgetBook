@@ -1,0 +1,4 @@
+# Block Maven output files
+/application/target/
+# Block IntelliJ specific settings
+/.idea
