@@ -3,7 +3,6 @@ package org.application.application;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import org.application.util.FileHandler;
 
@@ -14,12 +13,8 @@ public class BudgetBook extends Application {
     public void start(Stage primaryStage) throws Exception {
         BorderPane root = new BorderPane();
         Scene scene = new Scene(root);
-
-        URL cssUrl = getClass().getResource("/style.css");
-        //System.out.println(cssUrl);
-        scene.getStylesheets().add(cssUrl.toString());
-        root.getStyleClass().add("root");
-
+        
+        scene.getStylesheets().addAll(this.getClass().getResource("/style.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.setTitle("Budget Book");
         primaryStage.show();
