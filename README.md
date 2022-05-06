@@ -6,6 +6,7 @@ BudgetBook is a project developed by Bojan & Bilal. This project was developed i
 
 - Java
 - JavaFX
+- CSS
 
 ### Tabs
 
