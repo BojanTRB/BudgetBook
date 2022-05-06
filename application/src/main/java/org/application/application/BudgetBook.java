@@ -24,7 +24,7 @@ public class BudgetBook extends Application {
     @Override
     public void init() throws Exception {
         FileHandler fh = new FileHandler();
-        fh.writeTransactions("Withdraw", "Netflix", 10.5);
+        fh.writeTransactions("Withdraw", "Amazon", 70);
     }
 
     public static void main(String[] args) {

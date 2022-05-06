@@ -1,5 +1,6 @@
 package org.application.util;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -39,16 +40,14 @@ public class FileHandler {
         if (!existedBefore) {
             // If it didn't exist before, add lines
             List<String> row = Arrays.asList("Type", "Company", "Money");
-            System.out.println("Not existed before.");
 
             try {
-                FileWriter write = new FileWriter(data);
+                BufferedWriter write = new BufferedWriter(new FileWriter(data));
 
                 write.append(String.join(",", row));
                 write.append("\n");
                 write.flush();
                 write.close();
-                System.out.println("writed");
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
@@ -69,7 +68,7 @@ public class FileHandler {
 
         List<String> row = Arrays.asList(type, company, Double.toString(money));
 
-        try (FileWriter write = new FileWriter(data, true)) {
+        try (BufferedWriter write = new BufferedWriter(new FileWriter(data, true))) {
 
             write.append(String.join(",", row));
             write.append("\n");
