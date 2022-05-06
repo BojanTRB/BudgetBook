@@ -15,6 +15,8 @@ public class BudgetBook extends Application {
 
         scene.getStylesheets().addAll(this.getClass().getResource("/style.css").toExternalForm());
         primaryStage.setScene(scene);
+        /* Icon */
+        primaryStage.getIcons().add(new Image(this.getClass().getResource("/images/Icon.png").toExternalForm()));
         primaryStage.setTitle("Budget Book");
         primaryStage.show();
     }
