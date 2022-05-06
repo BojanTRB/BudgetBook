@@ -1,0 +1,4 @@
+/* Changes the scene background color */
+.root {
+    -fx-background: #262626;
+}

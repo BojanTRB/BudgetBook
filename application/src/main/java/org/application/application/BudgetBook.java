@@ -7,19 +7,22 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import org.application.util.FileHandler;
 
+import java.net.URL;
+
 public class BudgetBook extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         BorderPane root = new BorderPane();
         Scene scene = new Scene(root);
 
-        scene.setFill(Color.web("#262626"));
+        URL cssUrl = getClass().getResource("/style.css");
+        //System.out.println(cssUrl);
+        scene.getStylesheets().add(cssUrl.toString());
+        root.getStyleClass().add("root");
 
         primaryStage.setScene(scene);
         primaryStage.setTitle("Budget Book");
         primaryStage.show();
-
-
     }
 
     @Override
