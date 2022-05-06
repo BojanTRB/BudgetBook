@@ -13,13 +13,17 @@ public class BudgetBook extends Application {
         BorderPane root = new BorderPane();
         Scene scene = new Scene(root);
 
+        /* Stylesheet */
         scene.getStylesheets().addAll(this.getClass().getResource("/style.css").toExternalForm());
         primaryStage.setScene(scene);
+
         /* Icon */
         primaryStage.getIcons().add(new Image(this.getClass().getResource("/images/Icon.png").toExternalForm()));
         primaryStage.setTitle("Budget Book");
         primaryStage.show();
     }
+
+    // TODO: Application location saver
 
     @Override
     public void init() throws Exception {
