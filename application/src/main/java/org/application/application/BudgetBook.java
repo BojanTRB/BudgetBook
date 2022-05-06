@@ -19,6 +19,7 @@ public class BudgetBook extends Application {
         primaryStage.setTitle("Budget Book");
         primaryStage.show();
 
+
     }
 
     @Override
