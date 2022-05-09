@@ -6,10 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * JavaDoc this file!
@@ -65,7 +62,9 @@ public class FileHandler {
         }
 
         // Check config and add new configuration options
-        
+        if(!readConfig().containsKey("defaultFullScreen")) {
+            writeConfig("defaultFullScreen", "true");
+        }
     }
 
     public boolean writeTransactions(String type, String company, double money) {
@@ -126,7 +125,6 @@ public class FileHandler {
 
             for (String line : lines) {
                 String[] data = line.split(",");
-                System.out.println(line);
             }
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -135,19 +133,23 @@ public class FileHandler {
         return lines;
     }
 
-    public List<String> readConfig() {
+    public HashMap<String, String> readConfig() {
         List<String> lines = Collections.emptyList();
+        HashMap<String, String> config = new HashMap<>();
+
         try {
-            lines = Files.readAllLines(data.toPath());
+            lines = Files.readAllLines(this.config.toPath());
 
             for (String line : lines) {
-                String[] data = line.split(":");
-                System.out.println(line);
+                String[] map = line.split(":");
+
+                config.put(map[0], map[1]);
+
             }
         } catch (IOException ex) {
             ex.printStackTrace();
         }
 
-        return lines;
+        return config;
     }
 }

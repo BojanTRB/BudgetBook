@@ -16,6 +16,8 @@ public class BudgetBook extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        FileHandler fh = new FileHandler();
+
         BorderPane root = new BorderPane();
         Scene scene = new Scene(root);
 
@@ -28,9 +30,19 @@ public class BudgetBook extends Application {
         primaryStage.setTitle("Budget Book");
 
         /* Set full screen */
-        primaryStage.setMaximized(true);
-
-        // TODO: Application location saver
+        if(fh.readConfig().containsKey("defaultFullScreen")) {
+          String value = fh.readConfig().get("defaultFullScreen");
+          if(value.equals("true")) {
+              // If value is true
+              primaryStage.setMaximized(true);
+          } else {
+              // If value is set to false
+              primaryStage.setMaximized(false);
+          }
+        } else {
+            // If no value exists
+            primaryStage.setMaximized(true);
+        }
 
 
         primaryStage.show();

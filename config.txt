@@ -1,0 +1,1 @@
+defaultFullScreen:false
