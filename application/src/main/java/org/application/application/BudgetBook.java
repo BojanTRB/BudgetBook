@@ -9,6 +9,12 @@ import org.application.util.FileHandler;
 
 public class BudgetBook extends Application {
     @Override
+    public void init() throws Exception {
+        FileHandler fh = new FileHandler();
+        fh.writeTransactions("Withdraw", "Amazon", 70);
+    }
+
+    @Override
     public void start(Stage primaryStage) throws Exception {
         BorderPane root = new BorderPane();
         Scene scene = new Scene(root);
@@ -20,16 +26,15 @@ public class BudgetBook extends Application {
         /* Icon */
         primaryStage.getIcons().add(new Image(this.getClass().getResource("/images/Icon.png").toExternalForm()));
         primaryStage.setTitle("Budget Book");
+
+        /* Set full screen */
+        primaryStage.setMaximized(true);
+
+        // TODO: Application location saver
+
         primaryStage.show();
     }
 
-    // TODO: Application location saver
-
-    @Override
-    public void init() throws Exception {
-        FileHandler fh = new FileHandler();
-        fh.writeTransactions("Withdraw", "Amazon", 70);
-    }
 
     public static void main(String[] args) {
         Application.launch(args);
