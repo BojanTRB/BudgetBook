@@ -19,10 +19,11 @@ import java.util.List;
  */
 public class FileHandler {
     private File data;
+    private File config;
 
 
     public FileHandler() {
-        boolean existedBefore = true;
+        boolean dataExistedBefore = true;
 
         // File where all data will be stored
         data = new File("data.csv");
@@ -31,13 +32,23 @@ public class FileHandler {
         if (!data.exists()) {
             try {
                 data.createNewFile();
-                existedBefore = false;
+                dataExistedBefore = false;
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
 
-        if (!existedBefore) {
+        // Config where all configurations will be stored
+        config = new File("config.txt");
+
+        // Create new config file if not exists
+            try {
+                config.createNewFile();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+
+        if (!dataExistedBefore) {
             // If it didn't exist before, add lines
             List<String> row = Arrays.asList("Type", "Company", "Money");
 
@@ -52,6 +63,9 @@ public class FileHandler {
                 ex.printStackTrace();
             }
         }
+
+        // Check config and add new configuration options
+        
     }
 
     public boolean writeTransactions(String type, String company, double money) {
@@ -82,6 +96,28 @@ public class FileHandler {
         return true;
     }
 
+    public boolean writeConfig(String key, String value) {
+
+        if (!config.exists()) {
+            System.out.println("Config File does not exists.");
+            return false;
+        }
+
+        List<String> row = Arrays.asList(key, value);
+
+        try (BufferedWriter write = new BufferedWriter(new FileWriter(config, true))) {
+
+            write.append(String.join(":", row));
+            write.append("\n");
+            write.flush();
+            write.close();
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return false;
+        }
+        return true;
+    }
 
     public List<String> readTransactions() {
         List<String> lines = Collections.emptyList();
@@ -90,6 +126,22 @@ public class FileHandler {
 
             for (String line : lines) {
                 String[] data = line.split(",");
+                System.out.println(line);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+        return lines;
+    }
+
+    public List<String> readConfig() {
+        List<String> lines = Collections.emptyList();
+        try {
+            lines = Files.readAllLines(data.toPath());
+
+            for (String line : lines) {
+                String[] data = line.split(":");
                 System.out.println(line);
             }
         } catch (IOException ex) {

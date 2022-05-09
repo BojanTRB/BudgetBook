@@ -32,6 +32,7 @@ public class BudgetBook extends Application {
 
         // TODO: Application location saver
 
+
         primaryStage.show();
     }
 
