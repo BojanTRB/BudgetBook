@@ -62,9 +62,7 @@ public class FileHandler {
         }
 
         // Check config and add new configuration options
-        if(!readConfig().containsKey("defaultFullScreen")) {
-            writeConfig("defaultFullScreen", "true");
-        }
+
     }
 
     public boolean writeTransactions(String type, String company, double money) {
@@ -96,6 +94,8 @@ public class FileHandler {
     }
 
     public boolean writeConfig(String key, String value) {
+
+        // TODO (Add replace function)
 
         if (!config.exists()) {
             System.out.println("Config File does not exists.");

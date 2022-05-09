@@ -2,10 +2,15 @@ package org.application.application;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import org.application.util.FileHandler;
+
+import java.util.Optional;
 
 public class BudgetBook extends Application {
     @Override
@@ -28,6 +33,30 @@ public class BudgetBook extends Application {
         /* Icon */
         primaryStage.getIcons().add(new Image(this.getClass().getResource("/images/Icon.png").toExternalForm()));
         primaryStage.setTitle("Budget Book");
+
+        /* Set the configuration values */
+
+        if(!fh.readConfig().containsKey("defaultFullScreen")) {
+            ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
+            ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
+                    "Do you want to have Default Full Screen?",
+                    yes,
+                    no);
+
+            alert.setTitle("Configuration");
+            alert.setHeaderText("Full Screen");
+            Optional<ButtonType> result = alert.showAndWait();
+
+            if(result.get().getButtonData().isCancelButton()) {
+                // If set to no
+                fh.writeConfig("defaultFullScreen", "false");
+            } else {
+                // If set to true or closed
+                fh.writeConfig("defaultFullScreen" ,"true");
+            }
+        }
+
 
         /* Set full screen */
         if(fh.readConfig().containsKey("defaultFullScreen")) {
