@@ -133,6 +133,20 @@
                   </Label>
                </children>
             </Pane>
+            <Pane layoutX="584.0" layoutY="237.0" prefHeight="170.0" prefWidth="442.0" style="-fx-background-color: #2a2a2a; -fx-border-color: #535353;">
+               <children>
+                  <Label layoutX="34.0" layoutY="54.0" text="1409€" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="32.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="34.0" layoutY="96.0" text="TOTAL INCOME" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
          </children>
       </Pane>
    </center>
