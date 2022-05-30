@@ -1,6 +1,7 @@
 package org.application.application;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
@@ -24,7 +25,11 @@ public class BudgetBook extends Application {
         FileHandler fh = new FileHandler();
 
         BorderPane root = new BorderPane();
-        Scene scene = new Scene(root);
+        //Scene scene = new Scene(root);
+
+        FXMLLoader fxmlLoader = new FXMLLoader(BudgetBook.class.getResource("/overview.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        //Scene scene = new Scene(fxmlLoader.load(), 320, 240);
 
         /* Stylesheet */
         scene.getStylesheets().addAll(this.getClass().getResource("/style.css").toExternalForm());
