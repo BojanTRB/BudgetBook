@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #262626;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #262626;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <left>
         <AnchorPane prefHeight="400.0" prefWidth="305.0" style="-fx-background-color: #202020;" BorderPane.alignment="CENTER">
             <children>
@@ -145,6 +145,39 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="1088.0" layoutY="237.0" prefHeight="170.0" prefWidth="484.0" style="-fx-background-color: #2a2a2a; -fx-border-color: #535353;">
+               <children>
+                  <Label layoutX="34.0" layoutY="24.0" text="LATEST OUTCOMES" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="384.0" layoutY="26.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="VIEW ALL" textFill="#5c7cfa">
+                     <font>
+                        <Font name="Arial Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <Pane layoutX="35.0" layoutY="59.0" prefHeight="34.0" prefWidth="317.0">
+                     <children>
+                        <Label text="TISCH" textFill="WHITE">
+                           <font>
+                              <Font name="Arial" size="10.0" />
+                           </font>
+                        </Label>
+                        <Label layoutY="14.78" text="BOUGHT ON 02.05.2022" textFill="#666666">
+                           <font>
+                              <Font name="Arial" size="8.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="212.0" layoutY="4.0" text="190€" textFill="WHITE">
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
                </children>
             </Pane>
          </children>
